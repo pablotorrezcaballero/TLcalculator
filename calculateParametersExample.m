@@ -42,10 +42,9 @@ TL1 = TL1.calculateParameters(frequency);
 %% plotting impedances
 figure(1);clf;
 for iPhase = 1:size(TL1.pulR, 1)
-    selfR = TL1.pulR(iPhase,iPhase,:);
     selfL = TL1.pulL(iPhase,iPhase,:);
     
-    subplot(2,1,1);
+    subplot(2,1,1); selfR = TL1.pulR(iPhase,iPhase,:);
     semilogx(TL1.frequency, selfR(:), 'DisplayName', ['Phase ' num2str(iPhase) ' self resistance']); hold on
     ylabel('\Omega/km')
 
