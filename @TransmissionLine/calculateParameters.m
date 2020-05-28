@@ -1,7 +1,7 @@
-function this = calculateParameters(this,frequency)
+function this = calculateParameters(this, frequency)
 %UNTITLED4 Summary of this function goes here
 %   Detailed explanation goes here
-
+frequency = frequency(:);
 switch lower(this.type)
     case 'overhead'
         LDATA = this.data;
@@ -59,6 +59,6 @@ switch lower(this.type)
     otherwise
 end
 
-this.frequency = frequency;
+this.frequency = frequency(:);
 end
 

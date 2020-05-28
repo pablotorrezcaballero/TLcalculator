@@ -23,7 +23,7 @@ TL1 = TransmissionLine('overhead', 100, 'symmetrical3');
 
 % Then we specify at which frequencies we want to calculate parameters e.g. 
 % for 1000 exponentially distributed frequency points between 0.01 and 1 MHz:
-frequency = logspace(-2,6,1000)';
+frequency = logspace(-2,6,1000);
 
 % Once the line properties and geometry had been established, then the 
 % line parameters for the frequencies specified are generated as follows
@@ -46,11 +46,11 @@ for iPhase = 1:size(TL1.pulR, 1)
     selfL = TL1.pulL(iPhase,iPhase,:);
     
     subplot(2,1,1);
-    semilogx(frequency(:), selfR(:), 'DisplayName', ['Phase ' num2str(iPhase) ' selfParameters']); hold on
+    semilogx(TL1.frequency, selfR(:), 'DisplayName', ['Phase ' num2str(iPhase) ' self resistance']); hold on
     ylabel('\Omega/km')
 
     subplot(2,1,2); 
-    semilogx(frequency(:), selfL(:), 'DisplayName', ['Phase ' num2str(iPhase) ' selfParameters']); hold on
+    semilogx(TL1.frequency, selfL(:), 'DisplayName', ['Phase ' num2str(iPhase) ' self inductance']); hold on
     ylabel('H/km')
 end
 subplot(2,1,1);
